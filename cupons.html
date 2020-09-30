@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+     <a class="navbar-brand" href="#">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/44_parking_inv.png/598px-44_parking_inv.png" alt="Logo" style="width:50px;">
+     </a>
+  <span class="navbar-text text-light">
+   <h4>Park Finder</h4>
+  </span>
+    </nav>
 
     <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -50,9 +58,9 @@
           <div class="col-2">
             <div class="menu">
               <ul class="nav flex-column">
-               <li><a href="index.html" <button type="button" class="btn btn-outline-primary btn-sm btn-block text-left">Home</button></a></li>
-               <li><a href="cupons.html"<button type="button" class="btn btn-outline-primary btn-sm btn-block text-left">Cupons</button></a></li>
-               <li><a href="contact.html"<button type="button" class="btn btn-outline-primary btn-sm btn-block text-left">Contact</button></a></li>
+               <li><a href="index.html" <button type="button" class="btn btn-outline-secondary btn-sm btn-block text-left">Home</button></a></li>
+               <li><a href="cupons.html"<button type="button" class="btn btn-outline-secondary btn-sm btn-block text-left">Cupons</button></a></li>
+               <li><a href="contact.html"<button type="button" class="btn btn-outline-secondary btn-sm btn-block text-left">Contact</button></a></li>
               </ul>
             </div>
           </div>
@@ -63,9 +71,7 @@
 
 
           <section class="container-fluid py-5 text-center">
-
             <div class="container">
-
            <div class="row">
             <article class="col-md-4">
              <div class="card">
@@ -74,7 +80,31 @@
                </div>
                <div class="card-body">
                  <p>First registration discount</p>
-                 <a href="#"><button type="button" class="btn btn-primary btn-sm">See cupon</button></a>
+                 <a href="#"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">See cupon</button></a>
+                 <!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-fade modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Flash Offer!</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        5% discount just for today
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
                </div>
                </div>
              </article>
@@ -102,7 +132,7 @@
                  </div>
                  </div>
                </article>
-</div>
+             </div>
                </section>
 
                <section class="container-fluid text-center">
@@ -145,28 +175,22 @@
                      </div>
                      </div>
                    </article>
-
-
-</div>
-
-      </div>
-    </div>
-      </section>
-
-        </div>
-        </div>
-      </div>
-        </div>
-    </section>
-
-
+                 </div>
+                  </div>
+                   </div>
+                   </section>
+                      </div>
+                        </div>
+                          </div>
+                           </div>
+                            </section>
 
 
 
 
     <footer>
       <div class="container">
-        <div class="small nav justify-content-center container-fluid bg-light py-3">
+        <div class="small nav justify-content-center container-fluid bg-light py-3 fixed-bottom">
           @neoland
         </div>
         <div class="row">
