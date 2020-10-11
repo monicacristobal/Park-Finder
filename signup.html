@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Register - Park Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/signup.css">
+  </head>
+  <body>
+
+<div class="container fluid abs-center">
+  <div class="container2 container-fluid">
+    <div class="encabezado text-center text-light bg-secondary py-2">
+      <h2>Park Finder</h2>
+    </div>
+
+        <form class="" action="index.html" method="post">
+        <div class="row text-light">
+          <div class="col-12 form-group">
+            <label for="name">Name: </label>
+            <input id="name" type="text" name="name" value="" class="form-control" placeholder="Enter your name">
+          </div>
+          <div class="col-12 form-group">
+            <label for="surname">Surname: </label>
+            <input id="surname" type="text" name="surname" value="" class="form-control" placeholder="Enter your surname">
+          </div>
+          <div class="col-7 form-group">
+            <label for="dni">DNI: </label>
+            <input id="dni" type="text" name="dni" value="" class="form-control" placeholder="Enter your dni">
+          </div>
+
+          <div class="col-7 form-group">
+            <label for="birthdate">Birth date: </label>
+            <input id="birth" type="date" name="birthdate" value="" class="form-control">
+             <p id="edad"></p>
+          </div>
+
+          <div class="col-7 form-group">
+            <label for="carplate">Car plate: </label>
+            <input id="carplate" type="text" pattern="([0-9]{4}[A-Za-z]{2})" name="carplate"  value="" class="form-control" placeholder="5673-HJ">
+          </div>
+
+
+          <div class="col-7 form-group">
+              <label for="environment">Environment class: </label>
+              <form action="index.html">
+                <select id="mySelect" class="form-control" onchange="myFunction()">
+                  <option value="Sin descuento">B</option>
+                  <option value="Sin descuento">C</option>
+                  <option value="5%">ECO</option>
+                  <option value="10%">0</option>
+                </select>
+                <p id="envi"></p>
+
+
+
+             <div class="col tabla">
+               <a data-toggle="collapse" data-target="#demo">Show prices list</a>
+                  <div class="collapse" id=demo>
+                      <table class="table bg-light">
+                    <thead>
+                    <tr>
+                      <th>Discount</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                    <tbody id="contenido">
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+
+
+
+
+          <div class="col-4">
+            <button type="submit" name="send" class="btn btn-secondary btn-block">Send</button>
+          </div>
+          </div>
+       </form>
+
+  </div>
+
+</div>
+
+
+<script src="js/signup.js" language="javascript" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  </body>
+</html>
