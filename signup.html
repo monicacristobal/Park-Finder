@@ -18,22 +18,26 @@
 
         <form class="" action="index.html" method="post">
         <div class="row text-light">
+
           <div class="col-12 form-group">
             <label for="name">Name: </label>
             <input id="name" type="text" name="name" value="" class="form-control" placeholder="Enter your name">
           </div>
+
           <div class="col-12 form-group">
             <label for="surname">Surname: </label>
             <input id="surname" type="text" name="surname" value="" class="form-control" placeholder="Enter your surname">
           </div>
+
           <div class="col-7 form-group">
             <label for="dni">DNI: </label>
-            <input id="dni" type="text" name="dni" value="" class="form-control" placeholder="Enter your dni">
+            <input id="dni" onkeyup="letradni()" type="number" name="dni" action="index.html" value="" class="form-control" placeholder="Enter your dni">
+            <p id="letra"></p>
           </div>
 
           <div class="col-7 form-group">
             <label for="birthdate">Birth date: </label>
-            <input id="birth" type="date" name="birthdate" value="" class="form-control">
+            <input id="birthdate" type="date" name="birthdate" onkeyup="birth()" value="" class="form-control">
              <p id="edad"></p>
           </div>
 
@@ -52,11 +56,11 @@
                   <option value="5%">ECO</option>
                   <option value="10%">0</option>
                 </select>
+               </form>
                 <p id="envi"></p>
+           </div>
 
-
-
-             <div class="col tabla">
+             <div class="col-7 tabla">
                <a data-toggle="collapse" data-target="#demo">Show prices list</a>
                   <div class="collapse" id=demo>
                       <table class="table bg-light">
@@ -116,29 +120,17 @@
                 </div>
               </div>
 
-
-
-
-
-
-          <div class="col-4">
+          <div class="col-6">
             <button type="submit" name="send" class="btn btn-secondary btn-block">Send</button>
           </div>
-          </div>
-       </form>
 
   </div>
-
 </div>
 
 
 <script src="js/signup.js" language="javascript" type="text/javascript"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   </body>
 </html>
