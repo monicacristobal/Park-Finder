@@ -16,37 +16,56 @@
       <h2>Park Finder</h2>
     </div>
 
-        <form class="" action="index.html" method="post">
-        <div class="row text-light">
 
+        <div class="row text-light">
           <div class="col-12 form-group">
             <label for="name">Name: </label>
+            <form class="form-group" action="index.html" method="post">
             <input id="name" type="text" name="name" value="" class="form-control" placeholder="Enter your name">
+            </form>
+          </div>
           </div>
 
+          <div class="row text-light">
           <div class="col-12 form-group">
             <label for="surname">Surname: </label>
+            <form class="form-group" action="index.html" method="post">
             <input id="surname" type="text" name="surname" value="" class="form-control" placeholder="Enter your surname">
+            </form>
+          </div>
           </div>
 
+          <div class="row text-light">
           <div class="col-7 form-group">
             <label for="dni">DNI: </label>
-            <input id="dni" onkeyup="letradni()" type="number" name="dni" action="index.html" value="" class="form-control" placeholder="Enter your dni">
-            <p id="letra"></p>
+            <form name="dniform" class="form-group" action="index.html" method="post">
+            <input id="dniii" type="text" name="dni" value="" maxlenght="8" class="form-control" placeholder="Enter your dni">
+            <input type="button" onclick="letradni()" value= "OK" class="btn btn-secondary btn-sms">
+            </form>
+          </div>
           </div>
 
+
+         <div class="row text-light">
           <div class="col-7 form-group">
             <label for="birthdate">Birth date: </label>
+            <form class="form-group" action="index.html" method="post">
             <input id="birthdate" type="date" name="birthdate" onkeyup="birth()" value="" class="form-control">
-             <p id="edad"></p>
+            <p id="edad"></p>
+            </form>
+          </div>
           </div>
 
+          <div class="row text-light">
           <div class="col-7 form-group">
             <label for="carplate">Car plate: </label>
+            <form class="form-group" action="index.html" method="post">
             <input id="carplate" type="text" pattern="([0-9]{4}[A-Za-z]{2})" name="carplate"  value="" class="form-control" placeholder="5673-HJ">
+            </form>
+          </div>
           </div>
 
-
+          <div class="row text-light">
           <div class="col-7 form-group">
               <label for="environment">Environment class: </label>
               <form action="index.html">
@@ -59,8 +78,11 @@
                </form>
                 <p id="envi"></p>
            </div>
+           </div>
+
 
              <div class="col-7 tabla">
+               <form class="form-group" action="index.html" method="post">
                <a data-toggle="collapse" data-target="#demo">Show prices list</a>
                   <div class="collapse" id=demo>
                       <table class="table bg-light">
@@ -71,61 +93,18 @@
                     </tr>
                   </thead>
                     <tbody id="contenido">
-                      <tr>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>
+                </form>
               </div>
 
-          <div class="col-6">
+
+          <div class="row text-light">
+          <div class="col-3">
             <button type="submit" name="send" class="btn btn-secondary btn-block">Send</button>
           </div>
-
-  </div>
-</div>
+          </div>
 
 
 <script src="js/signup.js" language="javascript" type="text/javascript"></script>

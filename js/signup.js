@@ -5,8 +5,11 @@ function myFunction() {
 
 function letradni() {
 
+cadena = "TRWAGMYFPDXBNJZSQVHLCKET"
+posicion = dniform.dni.value % 23
+letra = cadena.substring(posicion, posicion + 1)
+document.dniform.dni.value = dniform.dni.value + " - " + letra
 }
-
 
 
 function birth() {
@@ -24,29 +27,25 @@ var dia_user = cumple.getDate();
 var x = fecha_hoy.getTime();
 var y = cumple.getTime();
 
-
-
 var fin = (x - y) / (1000*60*60*24*365);
 console.log(fin);
-
-document.getElementById("edad").innerHTML = fin;
+document.getElementById("edad").innerHTML = Math.round(fin) + " years old";
 
 }
 
-function contenido () {
 
-var porcent = 0;
-var porcentaje = porcent + 5;
+
+function contenido() {
+var i = 0;
+
+for (var i = 0; i < 55; i = i + 5){
 var precio = 75;
-var calculo = (porcentaje * precio) / 100;
-var i = precio - calculo;
-
-
-for (var i = 0; i = i <= 37.5; i + 5) {
+var calculo = (i * precio)/100;
+var resultado = precio - calculo;
 
 var fila = "<tr>"
-+ "<td>" + porcentaje + "</td>
-+ "<td>" + i + "</td>"
++ "<td>" + i +"%" + "</td>"
++ "<td>" + resultado + "</td>"
 + "</tr>";
 
 document.getElementById("contenido").innerHTML += fila;
