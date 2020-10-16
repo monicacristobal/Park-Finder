@@ -1,10 +1,9 @@
 function myFunction() {
-  var x = document.getElementById("mySelect").value;
-  document.getElementById("envi").innerHTML = "" + x;
+var x = document.getElementById("mySelect").value;
+document.getElementById("envi").innerHTML = "" + x;
 }
 
 function letradni() {
-
 cadena = "TRWAGMYFPDXBNJZSQVHLCKET"
 posicion = dniform.dni.value % 23
 letra = cadena.substring(posicion, posicion + 1)
@@ -30,7 +29,6 @@ var y = cumple.getTime();
 var fin = (x - y) / (1000*60*60*24*365);
 console.log(fin);
 document.getElementById("edad").innerHTML = Math.round(fin) + " years old";
-
 }
 
 
@@ -51,5 +49,4 @@ var fila = "<tr>"
 document.getElementById("contenido").innerHTML += fila;
 }
 }
-
 contenido();

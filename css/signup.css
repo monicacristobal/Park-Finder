@@ -8,12 +8,16 @@ background-image: center;
 background-size: cover;
 }
 
-
+h3 {
+   font-size: 40px;
+   margin: 20px;
+   
+}
 .container2 {
   background-color: rgba(0, 0, 0, 0.5);
-  margin: auto;
+  margin: 100px;
   width: 100%;
-  padding: 150px ;
+  padding: 100px ;
 
   }
 
