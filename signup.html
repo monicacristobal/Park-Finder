@@ -10,83 +10,80 @@
   </head>
   <body>
 
-<div class="container fluid abs-center">
+<form class="container fluid abs-center justify-content-center" action="signup.html" method="post">
   <div class="container2 container-fluid ">
     <div class=" encabezado text-center text-light bg-secondary py-1">
       <h3>Park Finder</h3>
     </div>
-
     <div class="text-center text-light py-3">
       <h4>REGISTER</h4>
     </div>
 
-
         <div class="row text-light ">
-          <div class="col-8 form-group">
+          <div class="col-8 form-group"  action="signup.html" method="post">
             <label for="name">Name: </label>
-            <form class="form-group" action="index.html" method="post">
-            <input id="name" type="text" name="name" value="" class="form-control" placeholder="Enter your name">
-            </form>
+            <input id="name" type="text" name="name" value="" class="form-control" placeholder="Enter your name" required>
           </div>
           </div>
-
           <div class="row text-light">
-          <div class="col-8 form-group">
+            <div class="col-8 form-group"  action="signup.html" method="post">
             <label for="surname">Surname: </label>
-            <form class="form-group" action="index.html" method="post">
-            <input id="surname" type="text" name="surname" value="" class="form-control" placeholder="Enter your surname">
-            </form>
+            <input id="surname" type="text" name="surname" value="" class="form-control" placeholder="Enter your surname" required>
           </div>
           </div>
-
           <div class="row text-light">
-          <div class="col-7 form-group">
+            <div class="col-8 form-group"  action="signup.html" method="post">
+             <label for="email">Email: </label>
+             <input id="email" type="text" name="email" value="" class="form-control" placeholder="Enter a valid email adress">
+            </div>
+          </div>
+          <div class="row text-light">
+            <div class="col-8 form-group"  action="signup.html" method="post">
+             <label for="password">Password: </label>
+             <input id="password" type="text" name="password" value="" class="form-control" placeholder="Enter a valid password">
+            </div>
+          </div>
+          <div class="row text-light">
+            <div class="col-8 form-group"  action="signup.html" method="post">
+             <label for="password2">Repeat password: </label>
+             <input id="password2" type="text" name="password2" value="" class="form-control" placeholder="Repeat password">
+            </div>
+          </div>
+          <div class="row text-light">
+            <div class="col-7 form-group" name="dniform" action="signup.html" method="post">
             <label for="dni">DNI: </label>
-            <form name="dniform" class="form-group" action="index.html" method="post">
-            <input id="dniii" type="text" name="dni" value="" maxlenght="8" class="form-control" placeholder="Enter your dni">
-            <input type="button" onclick="letradni()" value= "OK" class="btn btn-secondary btn-sms">
-            </form>
+            <input id="dni_num" type="text" name="dni" value="" class="form-control" required onkeyup="dni_completo()" placeholder="Enter your dni">
+            <p id="dni_let"></p>
           </div>
           </div>
-
-
          <div class="row text-light">
           <div class="col-7 form-group">
             <label for="birthdate">Birth date: </label>
-            <form class="form-group" action="index.html" method="post">
-            <input id="birthdate" type="date" name="birthdate" onkeyup="birth()" value="" class="form-control">
+            <form class="form-group" action="signup.html" method="post">
+            <input id="birthdate" type="date" name="birthdate" required onkeyup="birth()" value="" class="form-control">
             <p id="edad"></p>
             </form>
           </div>
           </div>
-
           <div class="row text-light">
-          <div class="col-7 form-group">
+            <div class="col-7 form-group"  action="signup.html" method="post">
             <label for="carplate">Car plate: </label>
-            <form class="form-group" action="index.html" method="post">
-            <input id="carplate" type="text" pattern="([0-9]{4}[A-Za-z]{2})" name="carplate"  value="" class="form-control" placeholder="5673-HJ">
-            </form>
+            <input id="carplate" type="text" name="carplate"  value="" class="form-control" placeholder="5673-HJ">
           </div>
           </div>
-
           <div class="row text-light">
-          <div class="col-7 form-group">
+            <div class="col-7 form-group"  action="signup.html" method="post">
               <label for="environment">Environment class: </label>
-              <form action="index.html">
-                <select id="mySelect" class="form-control" onchange="myFunction()">
+                <select id="mySelect" class="form-control" required onchange="myFunction()">
                   <option value="Sin descuento">B</option>
                   <option value="Sin descuento">C</option>
                   <option value="5%">ECO</option>
                   <option value="10%">0</option>
                 </select>
-               </form>
                 <p id="envi"></p>
            </div>
            </div>
-
-
-             <div class="col-7 tabla">
-               <form class="form-group" action="index.html" method="post">
+             <div class="col-7 tabla form-group" action="signup.html" method="post">
                <a data-toggle="collapse" data-target="#demo">Show prices list</a>
                   <div class="collapse" id=demo>
                       <table class="table bg-light">
@@ -100,20 +97,30 @@
                     </tbody>
                   </table>
                 </div>
-                </form>
               </div>
-
-
           <div class="row text-light">
           <div class="col-3">
-            <button type="submit" name="send" class="btn btn-secondary btn-block">Send</button>
+            <button type="submit" name="submit" value="Enviar" class="btn btn-secondary btn-block">Send</button>
           </div>
           </div>
+        </div>
+      </form>
 
 
-<script src="js/signup.js" language="javascript" type="text/javascript"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- jQuery validation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Mi JavaScript -->
+<script src="js/main.js" charset="utf-8"></script>
   </body>
 </html>

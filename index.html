@@ -18,15 +18,16 @@
        </span>
      </a>
 
-  <div class="accesos">
-     <a href="#" onclick="filter()" class="a-mostrar navbar-link text-light">Login</a>
+  <div class="a-ocultar d-none">
+     <a href="index.html" onclick="login()" class="navbar-link text-light">Login</a>
      <span class="text-light"> | </span>
-     <a href="signup.html" class="a-mostrar navbar-link text-light">SignUp</a>
-
-     <a href="#" class=" d-none navbar-link text-light">Mónica Cristóbal</a>
-
-     <a href="#" class=" d-none navbar-link text-light">Logout</a>
-    </div>
+     <a href="signup.html" class=" navbar-link text-light">SignUp</a>
+  </div>
+  <div class="a-mostrar d-none">
+     <a id="nombre_usuario" href="profile.html" class="navbar-link text-light">Nombre Apellido</a>
+     <span class="text-light"> | </span>
+     <a href="#" onclick="logout()" class=" navbar-link text-light">Logout</a>
+  </div>
     </nav>
 
     <div id="demo" class="carousel slide" data-ride="carousel">
@@ -70,7 +71,7 @@
                <li><a href="index.html" <button type="button" class="btn btn-outline-secondary btn-sm btn-block text-left">Home</button></a></li>
                <li><a href="cupons.html"<button type="button" class="btn btn-outline-secondary btn-sm btn-block text-left">Cupons</button></a></li>
                <li><a href="contact.html"<button type="button" class="btn btn-outline-secondary btn-sm btn-block text-left">Contact</button></a></li>
-               <li><a href="profile.html"<button type="button" class="a-mostrar d-none btn btn-outline-secondary btn-sm btn-block text-left">Profile</button></a></li>
+               <li class="a-mostrar d-none"><a href="profile.html"<button type="button" class="btn btn-outline-secondary btn-sm btn-block text-left">Profile</button></a></li>
               </ul>
             </div>
           </div>
@@ -95,10 +96,19 @@
     </footer>
 
 
-    <script src="js/main.js" charset="utf-8"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- jQuery validation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Mi JavaScript -->
+    <script src="js/main.js" charset="utf-8"></script>
   </body>
 </html>
