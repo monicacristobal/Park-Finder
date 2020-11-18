@@ -53,14 +53,13 @@
             <div class="col-7 form-group" name="dniform" action="signup.html" method="post">
             <label for="dni">DNI: </label>
             <input id="dni_num" type="text" name="dni" value="" class="form-control" required onkeyup="dni_completo()" placeholder="Enter your dni">
-            <p id="dni_let"></p>
           </div>
           </div>
          <div class="row text-light">
           <div class="col-7 form-group">
             <label for="birthdate">Birth date: </label>
             <form class="form-group" action="signup.html" method="post">
-            <input id="birthdate" type="date" name="birthdate" required onkeyup="birth()" value="" class="form-control">
+            <input id="birth_date" type="date" name="birthdate" value="" class="form-control" required>
             <p id="edad"></p>
             </form>
           </div>
@@ -74,13 +73,14 @@
           <div class="row text-light">
             <div class="col-7 form-group"  action="signup.html" method="post">
               <label for="environment">Environment class: </label>
-                <select id="mySelect" class="form-control" required onchange="myFunction()">
-                  <option value="Sin descuento">B</option>
-                  <option value="Sin descuento">C</option>
-                  <option value="5%">ECO</option>
-                  <option value="10%">0</option>
-                </select>
-                <p id="envi"></p>
+              <select class="form-control" name="env_class" id="env_class" required onchange="change_env_class()">
+                <option value="">-- Select one class --</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="ECO">ECO</option>
+                <option value="0">0</option>
+              </select>
+              <span id="eco_discount" class="lead text-light"></span>
            </div>
            </div>
              <div class="col-7 tabla form-group" action="signup.html" method="post">
@@ -121,6 +121,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <!-- Mi JavaScript -->
-<script src="js/main.js" charset="utf-8"></script>
+<script src="js/main1.js" charset="utf-8"></script>
+<script src="js/functions.js" charset="utf-8"></script>
   </body>
 </html>
