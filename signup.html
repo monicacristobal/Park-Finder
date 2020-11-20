@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Register - Park Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/signup.css">
+  </head>
+  <body>
+
+<form class="container fluid abs-center justify-content-center" action="signup.html" method="post">
+  <div class="container2 container-fluid ">
+    <div class=" encabezado text-center text-light bg-secondary py-1">
+      <h3>Park Finder</h3>
+    </div>
+    <div class="text-center text-light py-3">
+      <h4>REGISTER</h4>
+    </div>
+
+        <div class="row text-light ">
+          <div class="col-8 form-group"  action="signup.html" method="post">
+            <label for="name">Name: </label>
+            <input id="name" type="text" name="name" value="" class="form-control" placeholder="Enter your name" required>
+          </div>
+          </div>
+          <div class="row text-light">
+            <div class="col-8 form-group"  action="signup.html" method="post">
+            <label for="surname">Surname: </label>
+            <input id="surname" type="text" name="surname" value="" class="form-control" placeholder="Enter your surname" required>
+          </div>
+          </div>
+          <div class="row text-light">
+            <div class="col-8 form-group"  action="signup.html" method="post">
+             <label for="email">Email: </label>
+             <input id="email" type="text" name="email" value="" class="form-control" placeholder="Enter a valid email adress">
+            </div>
+          </div>
+          <div class="row text-light">
+            <div class="col-8 form-group"  action="signup.html" method="post">
+             <label for="password">Password: </label>
+             <input id="password" type="text" name="password" value="" class="form-control" placeholder="Enter a valid password">
+            </div>
+          </div>
+          <div class="row text-light">
+            <div class="col-8 form-group"  action="signup.html" method="post">
+             <label for="password2">Repeat password: </label>
+             <input id="password2" type="text" name="password2" value="" class="form-control" placeholder="Repeat password">
+            </div>
+          </div>
+          <div class="row text-light">
+            <div class="col-7 form-group" name="dniform" action="signup.html" method="post">
+            <label for="dni">DNI: </label>
+            <input id="dni_num" type="text" name="dni" value="" class="form-control" required onkeyup="dni_completo()" placeholder="Enter your dni">
+            <p id="dni_let"></p>
+          </div>
+          </div>
+         <div class="row text-light">
+          <div class="col-7 form-group">
+            <label for="birthdate">Birth date: </label>
+            <form class="form-group" action="signup.html" method="post">
+            <input id="birthdate" type="date" name="birthdate" required onkeyup="birth()" value="" class="form-control">
+            <p id="edad"></p>
+            </form>
+          </div>
+          </div>
+          <div class="row text-light">
+            <div class="col-7 form-group"  action="signup.html" method="post">
+            <label for="carplate">Car plate: </label>
+            <input id="carplate" type="text" name="carplate"  value="" class="form-control" placeholder="5673-HJ">
+          </div>
+          </div>
+          <div class="row text-light">
+            <div class="col-7 form-group"  action="signup.html" method="post">
+              <label for="environment">Environment class: </label>
+                <select id="mySelect" class="form-control" required onchange="myFunction()">
+                  <option value="Sin descuento">B</option>
+                  <option value="Sin descuento">C</option>
+                  <option value="5%">ECO</option>
+                  <option value="10%">0</option>
+                </select>
+                <p id="envi"></p>
+           </div>
+           </div>
+             <div class="col-7 tabla form-group" action="signup.html" method="post">
+               <a data-toggle="collapse" data-target="#demo">Show prices list</a>
+                  <div class="collapse" id=demo>
+                      <table class="table bg-light">
+                    <thead>
+                    <tr>
+                      <th>Discount</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                    <tbody id="contenido">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+          <div class="row text-light">
+          <div class="col-3">
+            <button type="submit" name="submit" value="Enviar" class="btn btn-secondary btn-block">Send</button>
+          </div>
+          </div>
+        </div>
+      </form>
+
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- jQuery validation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Mi JavaScript -->
+<script src="js/main.js" charset="utf-8"></script>
+  </body>
+</html>

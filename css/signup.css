@@ -1,0 +1,35 @@
+body {
+background-image: url("https://okdiario.com/img/2018/01/25/parking.jpg");
+background-image: no-repeat;
+background-image: fixed;
+background-image: center;
+
+
+background-size: cover;
+}
+
+h3 {
+   font-size: 40px;
+   margin: 20px;
+   
+}
+.container2 {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 100px;
+  width: 100%;
+  padding: 100px ;
+
+  }
+
+  .abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.encabezado {
+margin: 10px 90px;
+border-radius: 25px;
+
+}
