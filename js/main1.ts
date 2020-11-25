@@ -13,15 +13,15 @@ type PositionMap = {
 
 
 //* VARIABLES GLOBALES *//
+let marker:any;
+let mis_cupons:Cupons;
 
-var mis_cupons:Cupons;
+const coord: [number, number] = [-3.70325, 40.4167];
 
-var coord: [number, number] = [-3.70325, 40.4167];
-
-var map: any;
+let map: any;
 map = <string> $("#map").val();
 
-var user_info = {
+const user_info = {
  name: "Mónica",
  surname: "Cristóbal",
  ndoc: "47414040-T",
@@ -43,8 +43,8 @@ function getLocation() {
 }
 
 function showPosition(position) {
-var longitude = position.coords.longitude;
-var latitude = position.coords.latitude;
+let longitude = position.coords.longitude;
+let latitude = position.coords.latitude;
 map = position.coords.latitude + position.coords.longitude;
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibW9uaWNhY3IiLCJhIjoiY2toYWY4NDJsMGk5aTMxcGp4NTNqYmV4biJ9.YsLfhM-CtAFILBqvjVEZPQ';
@@ -64,19 +64,19 @@ $("#boton_park").on("click", function(){
 
      }).done(function(response){
 
-     var data = response["@graph"];
+     const data = response["@graph"];
      data.forEach(function(item){
-       var contenedor = <string>$("#buscador_park").val();
+       let contenedor = <string>$("#buscador_park").val();
        contenedor = contenedor.toUpperCase();
-       var text = item.title.toUpperCase().includes(contenedor);
+       let text = item.title.toUpperCase().includes(contenedor);
        if (text) {
-           var longitude = item.location.longitude;
-           var latitude = item.location.latitude;
-           var title = item.title;
-           var popup = new mapboxgl.Popup({ offset: 25 }).setText(
+           let longitude = item.location.longitude;
+           let latitude = item.location.latitude;
+           let title = item.title;
+           let popup = new mapboxgl.Popup({ offset: 25 }).setText(
                title
            );
-           var marker = new mapboxgl.Marker()
+           marker = new mapboxgl.Marker()
                .setLngLat([longitude, latitude])
                .setPopup(popup)
                .addTo(map);
@@ -86,7 +86,6 @@ $("#boton_park").on("click", function(){
      }).fail(function(){
      });
    });
-
 }
 
 
@@ -132,7 +131,7 @@ function initIsLoggedIn() {
 function mostrar() {
 document.getElementById("datos").innerHTML = "";
 
-for(var i in user_info) {
+for(let i in user_info) {
   if (typeof user_info[i] !== "function") {
  document.getElementById("datos").innerHTML +="<td>" + i + "</td>" + "<td>" + user_info[i] + "</td>";
   }
@@ -143,43 +142,43 @@ for(var i in user_info) {
 
 function cargar_cupons() {
 
-var contenedor:any;
+let contenedor:any;
 contenedor = $("#elcupon")[0];
 contenedor.classList.add("card-columns");
 
 mis_cupons.forEach(function(item){
 console.log("dentro de la iteracion", item);
 
-var divcard = document.createElement("div");
+let divcard = document.createElement("div");
 divcard.classList.add("card");
 contenedor.appendChild(divcard)
 
-var div1 = document.createElement("div");
+let div1 = document.createElement("div");
 div1.classList.add("mx-auto", "d-block");
 div1.style.height= "100px";
 div1.style.width= "100px";
 div1.style.overflow= "hidden"
 divcard.appendChild(div1)
 
-var imagen = document.createElement("img");
+let imagen = document.createElement("img");
 imagen.classList.add("card-img-top");
 imagen.src = item.imagen;
 div1.appendChild(imagen);
 
-var divcardbody = document.createElement("div");
+let divcardbody = document.createElement("div");
 divcardbody.classList.add("card-body", "text-center");
 divcard.appendChild(divcardbody);
 
-var texto = document.createElement("span");
+let texto = document.createElement("span");
 texto.classList.add("card-text");
 texto.innerHTML = item.texto;
 divcardbody.appendChild(texto);
 
-var contboton = document.createElement("anchor");
+let contboton = document.createElement("anchor");
 contboton.setAttribute("href", "#");
 divcardbody.appendChild(contboton);
 
-var boton = document.createElement("button");
+let boton = document.createElement("button");
 boton.setAttribute("type","button");
 boton.classList.add("btn", "btn-primary","btn-sm");
 boton.innerHTML="See cupon";
@@ -192,25 +191,22 @@ contboton.appendChild(boton);
 
 //*Página de signup*//
 
-
-
 /*Tabla Show Prices*/
 function contenido() {
-var i = 0;
+let i = 0;
 
-for (var i = 0; i < 55; i = i + 5){
-var precio = 75;
-var calculo = (i * precio)/100;
-var resultado = precio - calculo;
+for (let i = 0; i < 55; i = i + 5){
+let precio = 75;
+let calculo = (i * precio)/100;
+let resultado = precio - calculo;
 
-var fila = "<tr>"
+const fila = "<tr>"
 + "<td>" + i +"%" + "</td>"
 + "<td>" + resultado + "</td>"
 + "</tr>";
 
 document.getElementById("contenido").innerHTML += fila;
 }}
-
 
 
 /*DOCUMENT READY*/

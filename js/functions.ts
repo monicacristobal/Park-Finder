@@ -7,9 +7,9 @@ enum EnvClass {
 }
 
 function change_env_class() {
-  var env_class = $("#env_class").val();
+  const env_class = $("#env_class").val();
   if (env_class != "") {
-    var discount = get_discount(env_class);
+    const discount = get_discount(env_class);
     if (discount > 0) {
       document.getElementById("eco_discount").innerHTML = discount + "% discount";
     } else {
@@ -22,7 +22,7 @@ function change_env_class() {
 }
 
 function get_discount(env_class) {
-  var discount = 0;
+  let discount = 0;
   switch (env_class) {
     case EnvClass.Eco:
       discount = 5;
@@ -39,7 +39,7 @@ function get_discount(env_class) {
 
 /**Validación MATRÍCULA*/
 $.validator.addMethod("plate", function(value, element, param){
-  var resultado = value.match(/([0-9]{4}[A-Za-z]{3})|([A-Za-z]{2}[0-9]{4}[A-Za-z]{2})/g);
+  const resultado = value.match(/([0-9]{4}[A-Za-z]{3})|([A-Za-z]{2}[0-9]{4}[A-Za-z]{2})/g);
 
   if (resultado === null) {
     return false;
@@ -54,24 +54,24 @@ $.validator.addMethod("plate", function(value, element, param){
 
 /*Función y validación DNI*/
 function change_dni() {
-  var dni = <string>$("#dni").val();
+  const dni = <string>$("#dni").val();
   if (dni.length == 8) {
-    var dni_num = parseInt(dni);
+    const dni_num = parseInt(dni);
     document.getElementById("dnil").innerHTML = dni_letter(dni_num);
   } else {
     document.getElementById("dnil").innerHTML = "";
   }
 }
 function dni_letter(dni: number) {
-  var letters = "TRWAGMYFPDXBNJZSQVHLCKE";
-  var resto = dni % 23;
-  var letter = letters.substr(resto, 1);
+  const letters = "TRWAGMYFPDXBNJZSQVHLCKE";
+  const resto = dni % 23;
+  const letter = letters.substr(resto, 1);
   return letter;
 }
 
 
 $.validator.addMethod("nif", function(value, element, param){
-  var resultado = value.match(/\d{8}[a-zA-Z]/g);
+  const resultado = value.match(/\d{8}[a-zA-Z]/g);
 
   if (resultado === null) {
     return false;
@@ -83,17 +83,17 @@ $.validator.addMethod("nif", function(value, element, param){
 
 /*Función y validación EDAD*/
 function calc_age(birth_date:string) {
-  var b_date = new Date(birth_date);
-  var n_date = new Date();
-  var dif = n_date.getTime() - b_date.getTime();
-  var dif_days = dif / (1000 * 3600 * 24 * 365);
+  let b_date = new Date(birth_date);
+  let n_date = new Date();
+  let dif = n_date.getTime() - b_date.getTime();
+  let dif_days = dif / (1000 * 3600 * 24 * 365);
   return Math.round(dif_days);
 }
 
 function change_birth_date() {
-  var birth_date = <string>$("#birth_date").val();
+  const birth_date = <string>$("#birth_date").val();
   if (birth_date != "") {
-    var age = calc_age(birth_date);
+    const age = calc_age(birth_date);
     if (age < 100 && age > 0) {
       document.getElementById("age").innerHTML = age + " years old";
     } else {
@@ -105,7 +105,7 @@ function change_birth_date() {
 }
 
 $.validator.addMethod('age', function(value, element, param) {
-  var age = calc_age(value);
+  const age = calc_age(value);
   if (age >= param.from && age <= param.to) {
       return true;
   }

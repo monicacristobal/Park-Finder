@@ -1,5 +1,6 @@
 //* DEFINICIONES TYPESCRIPT *//
 //* VARIABLES GLOBALES *//
+var marker;
 var mis_cupons;
 var coord = [-3.70325, 40.4167];
 var map;
@@ -43,12 +44,12 @@ function showPosition(position) {
                 contenedor = contenedor.toUpperCase();
                 var text = item.title.toUpperCase().includes(contenedor);
                 if (text) {
-                    var longitude = item.location.longitude;
-                    var latitude = item.location.latitude;
+                    var longitude_1 = item.location.longitude;
+                    var latitude_1 = item.location.latitude;
                     var title = item.title;
                     var popup = new mapboxgl.Popup({ offset: 25 }).setText(title);
-                    var marker = new mapboxgl.Marker()
-                        .setLngLat([longitude, latitude])
+                    marker = new mapboxgl.Marker()
+                        .setLngLat([longitude_1, latitude_1])
                         .setPopup(popup)
                         .addTo(map);
                 }
@@ -142,12 +143,12 @@ function cargar_cupons() {
 /*Tabla Show Prices*/
 function contenido() {
     var i = 0;
-    for (var i = 0; i < 55; i = i + 5) {
+    for (var i_1 = 0; i_1 < 55; i_1 = i_1 + 5) {
         var precio = 75;
-        var calculo = (i * precio) / 100;
+        var calculo = (i_1 * precio) / 100;
         var resultado = precio - calculo;
         var fila = "<tr>"
-            + "<td>" + i + "%" + "</td>"
+            + "<td>" + i_1 + "%" + "</td>"
             + "<td>" + resultado + "</td>"
             + "</tr>";
         document.getElementById("contenido").innerHTML += fila;
