@@ -20,12 +20,12 @@
        </span>
      </a>
 
-  <div class="a-ocultar d-none">
+  <div class="logged-out d-none">
      <a href="index.html" onclick="login()" class="navbar-link text-light">Login</a>
      <span class="text-light"> | </span>
      <a href="signup.html" class=" navbar-link text-light">SignUp</a>
   </div>
-  <div class="a-mostrar d-none">
+  <div class="logged-in d-none">
      <a id="nombre_usuario" href="profile.html" class="navbar-link text-light">Nombre Apellido</a>
      <span class="text-light"> | </span>
      <a href="#" onclick="logout()" class=" navbar-link text-light">Logout</a>
@@ -73,7 +73,7 @@
                <li><a href="index.html" <button type="button" class="btn btn-outline-secondary btn-sm btn-block text-left">Home</button></a></li>
                <li><a href="cupons.html"<button type="button" class="btn btn-outline-secondary btn-sm btn-block text-left">Cupons</button></a></li>
                <li><a href="contact.html"<button type="button" class="btn btn-outline-secondary btn-sm btn-block text-left">Contact</button></a></li>
-               <li class="a-mostrar d-none"><a href="profile.html"<button type="button" class="btn btn-outline-secondary btn-sm btn-block text-left">Profile</button></a></li>
+               <li class="logged-in d-none"><a href="profile.html"<button type="button" class="btn btn-outline-secondary btn-sm btn-block text-left">Profile</button></a></li>
               </ul>
             </div>
           </div>
@@ -119,7 +119,7 @@
 
     <!-- Mi JavaScript -->
     <script src="js/main1.js" charset="utf-8"></script>
-  
+
 
   </body>
 </html>

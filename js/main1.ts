@@ -34,6 +34,26 @@ const user_info = {
 
 //* FUNCIONES *//
 
+async function load_parkings(){
+const verif = get_parkings();
+  //pintar los puntos
+};
+
+async function  get_parkings(){
+ return new Promise(function(data) {
+   $.ajax({
+     url: "https://cors-anywhere.herokuapp.com/https://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.json",
+  })
+  .done(datos){
+    return datos;
+  }
+  .fail(error){
+    return error;
+  }
+ });
+};
+
+
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -41,6 +61,8 @@ function getLocation() {
     alert("Geolocation is not supported by this browser.");
   }
 }
+
+
 
 function showPosition(position) {
 let longitude = position.coords.longitude;
@@ -93,7 +115,7 @@ $("#boton_park").on("click", function(){
 
 function start_user() {
   document.querySelectorAll("#nombre_usuario")[0].innerHTML = user_info.name + " " + user_info.surname;
-  var elements = document.getElementsByClassName("a-mostrar");
+  var elements = document.getElementsByClassName("logged-in");
   for (var i = 0; i < elements.length; i++) {
     if (localStorage["is_logged_in"] === "true") {
       elements[i].classList.remove("d-none");
@@ -101,7 +123,7 @@ function start_user() {
       elements[i].classList.add("d-none");
     }
   }
-  var elements = document.getElementsByClassName("a-ocultar");
+  var elements = document.getElementsByClassName("logged-out");
   for (var i = 0; i < elements.length; i++) {
     if (localStorage["is_logged_in"] === "true") {
       elements[i].classList.add("d-none");
@@ -124,6 +146,32 @@ function initIsLoggedIn() {
   if (localStorage["is_logged_in"] === undefined) {
     localStorage["is_logged_in"] = false;
   }
+}
+
+function cookie() {
+  document.cookie = "aa=kk; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+  document.cookie = "bar=foo";
+  document.cookie = "bar=foo";
+  console.log("COOKIE:", document.cookie);
+
+  var exdays = 1;
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+}
+
+function local_storage() {
+  var foo = "kk";
+  localStorage.setItem("bar", foo);
+  var foo2 = localStorage.getItem("bar");
+  console.log("LOCAL STORAGE: ", foo2);
+}
+
+function session_storage() {
+  var foo = "kk";
+  sessionStorage.setItem("bar", foo);
+  var foo2 = sessionStorage.getItem("bar");
+  console.log("SESSION STORAGE: ", foo2);
 }
 
 
@@ -211,19 +259,22 @@ document.getElementById("contenido").innerHTML += fila;
 
 /*DOCUMENT READY*/
 $(document).ready(function() {
+
 initIsLoggedIn();
+
   if ($("#datos").length > 0) {
     mostrar();
   }
   if ($("#contenido").length > 0) {
     contenido();
+  } else {
+    start_user();
   }
+
   if ($("#map").length > 0) {
   getLocation();
   }
-  if ($("#contenido").length > 0) {
-  contenido();
-  }
+
 
   $.ajax({
     url:"json/cupons.json",
