@@ -50,32 +50,62 @@ var user_info = {
     enviclass: "C",
 };
 //* FUNCIONES *//
-function load_parkings() {
+function cargar_api(resolve, reject) {
+    $.ajax({
+        url: "https://cors-anywhere.herokuapp.com/https://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.json",
+        method: "GET"
+    }).done(function (response) {
+        if (response !== undefined) {
+            resolve(response);
+        }
+        else {
+            reject("No encuentra API");
+        }
+    }).fail(function () {
+        console.log("error");
+    });
+}
+function get_parkings() {
     return __awaiter(this, void 0, void 0, function () {
-        var verif;
         return __generator(this, function (_a) {
-            verif = get_parkings();
-            return [2 /*return*/];
+            return [2 /*return*/, new Promise(cargar_api)];
         });
     });
 }
 ;
-function get_parkings() {
+function load_parking() {
     return __awaiter(this, void 0, void 0, function () {
+        var response, data, e_1;
         return __generator(this, function (_a) {
-            return [2 /*return*/, new Promise(function (data) {
-                    $.ajax({
-                        url: "https://cors-anywhere.herokuapp.com/https://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.json",
-                    })
-                        .done(datos);
-                    {
-                        return datos;
-                    }
-                    fail(error);
-                    {
-                        return error;
-                    }
-                })];
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, get_parkings()];
+                case 1:
+                    response = _a.sent();
+                    data = response["@graph"];
+                    data.forEach(function (item) {
+                        var contenedor = $("#buscador_park").val();
+                        contenedor = contenedor.toUpperCase();
+                        var text = item.title.toUpperCase().includes(contenedor);
+                        if (text) {
+                            var longitude = item.location.longitude;
+                            var latitude = item.location.latitude;
+                            var title = item.title;
+                            var popup = new mapboxgl.Popup({ offset: 25 }).setText(title);
+                            marker = new mapboxgl.Marker()
+                                .setLngLat([longitude, latitude])
+                                .setPopup(popup)
+                                .addTo(map);
+                        }
+                    })["catch"]();
+                    return [3 /*break*/, 3];
+                case 2:
+                    e_1 = _a.sent();
+                    console.log(e_1);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
         });
     });
 }
@@ -99,31 +129,37 @@ function showPosition(position) {
         center: coord,
         zoom: 15
     });
-    $("#boton_park").on("click", function () {
-        $.ajax({
-            url: "https://cors-anywhere.herokuapp.com/https://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.json",
-            method: "GET"
-        }).done(function (response) {
-            var data = response["@graph"];
-            data.forEach(function (item) {
-                var contenedor = $("#buscador_park").val();
-                contenedor = contenedor.toUpperCase();
-                var text = item.title.toUpperCase().includes(contenedor);
-                if (text) {
-                    var longitude_1 = item.location.longitude;
-                    var latitude_1 = item.location.latitude;
-                    var title = item.title;
-                    var popup = new mapboxgl.Popup({ offset: 25 }).setText(title);
-                    marker = new mapboxgl.Marker()
-                        .setLngLat([longitude_1, latitude_1])
-                        .setPopup(popup)
-                        .addTo(map);
-                }
-            });
-        }).fail(function () {
-        });
-    });
 }
+;
+// $("#boton_park").on("click", function(){
+//      $.ajax({
+//        url: "https://cors-anywhere.herokuapp.com/https://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.json",
+//        method: "GET"
+//
+//      }).done(function(response){
+//
+//      const data = response["@graph"];
+//      data.forEach(function(item){
+//        let contenedor = <string>$("#buscador_park").val();
+//        contenedor = contenedor.toUpperCase();
+//        let text = item.title.toUpperCase().includes(contenedor);
+//        if (text) {
+//            let longitude = item.location.longitude;
+//            let latitude = item.location.latitude;
+//            let title = item.title;
+//            let popup = new mapboxgl.Popup({ offset: 25 }).setText(
+//                title
+//            );
+//            marker = new mapboxgl.Marker()
+//                .setLngLat([longitude, latitude])
+//                .setPopup(popup)
+//                .addTo(map);
+//        }
+//      });
+//
+//      }).fail(function(){
+//      });
+//    });
 /*Función Login-Logout*/
 function start_user() {
     document.querySelectorAll("#nombre_usuario")[0].innerHTML = user_info.name + " " + user_info.surname;
@@ -255,7 +291,8 @@ $(document).ready(function () {
         start_user();
     }
     if ($("#map").length > 0) {
-        getLocation();
+        $("#boton_park").on("click", getLocation);
+        load_parking();
     }
     $.ajax({
         url: "json/cupons.json",

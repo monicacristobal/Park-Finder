@@ -8,7 +8,7 @@ type Cupons = [ {
 
 type PositionMap = {
  longitude:number,
- latitude: number
+ latitude: number,
 }
 
 
@@ -34,23 +34,56 @@ const user_info = {
 
 //* FUNCIONES *//
 
-async function load_parkings(){
-const verif = get_parkings();
-  //pintar los puntos
+
+function cargar_api(resolve:any, reject:any){
+  $.ajax({
+    url: "https://cors-anywhere.herokuapp.com/https://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.json",
+    method: "GET"
+
+  }).done(function(response){
+  if(response !==undefined) {
+    resolve(response);
+  }else {
+    reject("No encuentra API");
+  }
+}
+).fail(function(){
+  console.log("error");
+
+}
+)}
+
+
+
+async function get_parkings(){
+return new Promise(cargar_api);
 };
 
-async function  get_parkings(){
- return new Promise(function(data) {
-   $.ajax({
-     url: "https://cors-anywhere.herokuapp.com/https://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.json",
-  })
-  .done(datos){
-    return datos;
+async function load_parking() {
+  try {
+    const response = await get_parkings();
+    const data = response["@graph"];
+        data.forEach(function(item:any){
+        let contenedor = <string>$("#buscador_park").val();
+        contenedor = contenedor.toUpperCase();
+        let text = item.title.toUpperCase().includes(contenedor);
+        if (text) {
+            let longitude = item.location.longitude;
+            let latitude = item.location.latitude;
+            let title = item.title;
+            let popup = new mapboxgl.Popup({ offset: 25 }).setText(
+                title
+            );
+            marker = new mapboxgl.Marker()
+                .setLngLat([longitude, latitude])
+                .setPopup(popup)
+                .addTo(map);
+        }
+      })
+  .catch();
+  } catch(e) {
+    console.log(e);
   }
-  .fail(error){
-    return error;
-  }
- });
 };
 
 
@@ -61,7 +94,6 @@ function getLocation() {
     alert("Geolocation is not supported by this browser.");
   }
 }
-
 
 
 function showPosition(position) {
@@ -76,39 +108,39 @@ map = new mapboxgl.Map({
   center: coord,
   zoom: 15
  });
+};
 
 
+// $("#boton_park").on("click", function(){
+//      $.ajax({
+//        url: "https://cors-anywhere.herokuapp.com/https://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.json",
+//        method: "GET"
+//
+//      }).done(function(response){
+//
+//      const data = response["@graph"];
+//      data.forEach(function(item){
+//        let contenedor = <string>$("#buscador_park").val();
+//        contenedor = contenedor.toUpperCase();
+//        let text = item.title.toUpperCase().includes(contenedor);
+//        if (text) {
+//            let longitude = item.location.longitude;
+//            let latitude = item.location.latitude;
+//            let title = item.title;
+//            let popup = new mapboxgl.Popup({ offset: 25 }).setText(
+//                title
+//            );
+//            marker = new mapboxgl.Marker()
+//                .setLngLat([longitude, latitude])
+//                .setPopup(popup)
+//                .addTo(map);
+//        }
+//      });
+//
+//      }).fail(function(){
+//      });
+//    });
 
-$("#boton_park").on("click", function(){
-     $.ajax({
-       url: "https://cors-anywhere.herokuapp.com/https://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.json",
-       method: "GET"
-
-     }).done(function(response){
-
-     const data = response["@graph"];
-     data.forEach(function(item){
-       let contenedor = <string>$("#buscador_park").val();
-       contenedor = contenedor.toUpperCase();
-       let text = item.title.toUpperCase().includes(contenedor);
-       if (text) {
-           let longitude = item.location.longitude;
-           let latitude = item.location.latitude;
-           let title = item.title;
-           let popup = new mapboxgl.Popup({ offset: 25 }).setText(
-               title
-           );
-           marker = new mapboxgl.Marker()
-               .setLngLat([longitude, latitude])
-               .setPopup(popup)
-               .addTo(map);
-       }
-     });
-
-     }).fail(function(){
-     });
-   });
-}
 
 
 /*Función Login-Logout*/
@@ -272,7 +304,8 @@ initIsLoggedIn();
   }
 
   if ($("#map").length > 0) {
-  getLocation();
+    $("#boton_park").on("click", getLocation);
+    load_parking();
   }
 
 
